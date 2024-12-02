@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+    <div class="rs-container">
+        <div class="btn-option">
+            <button id="openCanvasButton" class="canvas-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="filter">
+                    <path fill="#111224"
+                        d="M17 11H4A1 1 0 0 1 4 9H17A1 1 0 0 1 17 11zM26 11H22a1 1 0 0 1 0-2h4A1 1 0 0 1 26 11z" />
+                    <path fill="#111224"
+                        d="M19.5 13.5A3.5 3.5 0 1 1 23 10 3.5 3.5 0 0 1 19.5 13.5zm0-5A1.5 1.5 0 1 0 21 10 1.5 1.5 0 0 0 19.5 8.5zM26 21H13a1 1 0 0 1 0-2H26A1 1 0 0 1 26 21zM8 21H4a1 1 0 0 1 0-2H8A1 1 0 0 1 8 21z" />
+                    <path fill="#111224"
+                        d="M10.5,23.5A3.5,3.5,0,1,1,14,20,3.5,3.5,0,0,1,10.5,23.5Zm0-5A1.5,1.5,0,1,0,12,20,1.5,1.5,0,0,0,10.5,18.5Z" />
+                </svg>
+
+                <span>Filter and sort</span>
+            </button>
+            <div class="rs-d-flex">
+                <select id="filter-select">
+                    <option value="*">Show All</option>
+                    <option value="featured">Featured</option>
+                    <option value="best-selling ">Best selling</option>
+                    <option value="title-ascending ">Alphabetically, A-Z</option>
+                    <option value="title-descending ">Alphabetically, Z-A</option>
+                    <option value="price-ascending  ">Price, low to high</option>
+                    <option value="price-descending ">Price, high to low</option>
+                    <option value="created-ascending ">Date, old to new</option>
+                    <option value="created-descending  ">Date, new to old</option>
+                </select>
+
+
+
+                <h5 class="all-product-count">19 products</h5>
+            </div>
+        </div>
+        <div class="product-grid">
+            <div class="product-card " data-category="featured">
+                <span class="product-tag ">Sold Out</span>
+                <div class="product-image">
+                    <a href="#">
+                        <img src="assets/image/image-1.jpg" alt="Product Image" class="default-img">
+                        <img src="assets/image/image-2.jpg" alt="Product Image Hover" class="hover-img">
+                    </a>
+
+                    <a href="#" class="quick-view">Quick View</a>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name"><a href="#">Product Name</a></h3>
+                    <p class="product-price">Tk 13,400.00</p>
+                </div>
+            </div>
+            <div class="product-card " data-category="featured best-selling ">
+                <span class="product-tag ">Sold Out</span>
+                <div class="product-image">
+                    <a href="#">
+                        <img src="assets/image/image-2.jpg" alt="Product Image" class="default-img">
+                        <img src="assets/image/image-3.jpg" alt="Product Image Hover" class="hover-img">
+                    </a>
+
+                    <a href="#" class="quick-view">Quick View</a>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name"><a href="#">Product Name</a></h3>
+                    <p class="product-price">Tk 13,400.00</p>
+                </div>
+            </div>
+            <div class="product-card " data-category="featured best-selling title-ascending">
+                <span class="product-tag ">Sold Out</span>
+                <div class="product-image">
+                    <a href="#">
+                        <img src="assets/image/image-2.jpg" alt="Product Image" class="default-img">
+                        <img src="assets/image/image-4.jpg" alt="Product Image Hover" class="hover-img">
+                    </a>
+
+                    <a href="#" class="quick-view">Quick View</a>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name"><a href="#">Product Name</a></h3>
+                    <p class="product-price">Tk 13,400.00</p>
+                </div>
+            </div>
+            <div class="product-card " data-category="featured best-selling ">
+                <span class="product-tag ">Sold Out</span>
+                <div class="product-image">
+                    <a href="#">
+                        <img src="assets/image/image-3.jpg" alt="Product Image" class="default-img">
+                        <img src="assets/image/image-1.jpg" alt="Product Image Hover" class="hover-img">
+                    </a>
+
+                    <a href="#" class="quick-view">Quick View</a>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name"><a href="#">Product Name</a></h3>
+                    <p class="product-price">Tk 13,400.00</p>
+                </div>
+            </div>
+        </div>
+        <div class="body-overlay"></div>
+        <div class="body-overlay2"></div>
+        <div id="filterCanvas" class="canvas">
+            <div class="canvas-header">
+                <div>
+                    <h3 class="canvas-header-title">Filter and sort</h3>
+                    <h5 class="all-product-count">19 products</h5>
+                </div>
+                <button id="closeCanvasButton" class="close-button">×</button>
+            </div>
+            <div class="canvas-body">
+                <div class="available-toggle">
+                    <span class="available-toggle-icon"></span>
+                    <h5 class="title">Availability</h5>
+                </div>
+                <div class="stock-toggle">
+                    <div class="stock-toggle-icon">
+                        <span></span>
+                    </div>
+                    <span id="stockStatus">In Stock</span>
+                </div>
+                <div class="filter-header">
+                    <h4 class="filter-title">Sort by</h4>
+                    <select id="filter-select">
+                        <option value="*">Show All</option>
+                        <option value="featured">Featured</option>
+                        <option value="best-selling ">Best selling</option>
+                        <option value="title-ascending ">Alphabetically, A-Z</option>
+                        <option value="title-descending ">Alphabetically, Z-A</option>
+                        <option value="price-ascending  ">Price, low to high</option>
+                        <option value="price-descending ">Price, high to low</option>
+                        <option value="created-ascending ">Date, old to new</option>
+                        <option value="created-descending  ">Date, new to old</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="cart-canva">
+            <div class="canvas-header">
+                <div>
+                    <h3 class="canvas-header-title">Select options</h3>
+
+                </div>
+                <button id="cartClose" class="close-button">×</button>
+            </div>
+            <div class="cart-product-list">
+                <div class="product-images">
+                    <img src="assets/image/11.jpg" alt="Product Image" class="cart-image">
+                    <img src="assets/image/11.jpg" alt="Product Image" class="cart-image">
+                    <img src="assets/image/11.jpg" alt="Product Image" class="cart-image">
+                </div>
+            </div>
+            <div class="cart-canva-body">
+                <h3 class="product-name">KOI Script Nylon Shirt Jacket</h3>
+                <p class="product-price">Tk 13,400.00
+                    <span class="product-tag ">Sold Out</span>
+
+                </p>
+                <form action="">
+
+                    <div class="form-label">
+                        Size:
+                        <span class="label-value">xl</span>
+                    </div>
+                    <div class="size-options">
+                        <button type="button" class="size-button">S</button>
+                        <button type="button" class="size-button">M</button>
+                        <button type="button" class="size-button">L</button>
+                        <button type="button" class="size-button">XL</button>
+                    </div>
+                    <div class="group-quantity-add">
+                        <div class="quantity-selector">
+                            <button type="button" class="quantity-button" id="decrease">-</button>
+                            <input type="text" id="quantity" value="1" min="1" step="1" />
+                            <button type="button" class="quantity-button" id="increase">+</button>
+                        </div>
+                        <button type="submit" class="add-to-cart-button">Add to Cart</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
+
+    <script src="assets/js/main.js"></script>
+
+
+</body>
+
+</html>

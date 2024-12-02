@@ -1,0 +1,601 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&display=swap');
+
+
+
+.rs-container {
+    max-width: 1920px;
+    margin: auto;
+}
+
+.btn-option {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rs-d-flex {
+    display: flex;
+    align-items: center;
+    height: 16px;
+
+}
+
+.rs-d-flex select#filter {
+    border: none;
+    margin-right: 32px;
+}
+
+.rs-d-flex .all-product-count {
+    font-size: 12px;
+}
+
+
+
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    display: block;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.product-image .hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.product-image:hover .hover-img {
+    opacity: 1;
+}
+
+.product-image:hover .default-img {
+    opacity: 0;
+}
+
+
+.quick-view {
+    display: block;
+    width: 100%;
+    background: #2C2C2C;
+    color: #fff;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 400;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    text-transform: uppercase;
+    font-family: "Archivo Narrow", sans-serif;
+    margin-bottom: 23px;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.product-name a {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-family: "Archivo Narrow", sans-serif;
+    color: rgb(21, 21, 21);
+    text-decoration: none;
+}
+
+.product-price {
+    color: rgb(21, 21, 21);
+    font-size: 15px;
+    font-weight: 400;
+    font-family: "Archivo Narrow", sans-serif;
+
+}
+
+.product-card:hover .quick-view {
+    transform: scaleY(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.product-tag {
+    position: absolute;
+    display: inline-block;
+    top: 12px;
+    left: 10px;
+    z-index: 5;
+    background: #939393;
+    font-size: 10px;
+    height: 23px;
+    padding: 0 10px;
+    text-transform: uppercase;
+    line-height: 23px;
+    border-radius: 30px;
+    font-family: "Archivo Narrow", sans-serif;
+    color: #fff;
+    font-weight: 600;
+
+}
+
+
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.product-card {
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 30px;
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding: 0 15px;
+    padding-bottom: 30px;
+}
+
+
+.canvas-button {
+    border: none;
+    background: transparent;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-family: "Archivo Narrow", sans-serif;
+    font-weight: 600;
+    color: rgb(21, 21, 21);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    cursor: pointer;
+}
+
+svg#filter {
+    width: 15px;
+}
+
+/* Canvas */
+.body-overlay,
+.body-overlay2 {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    z-index: 99;
+    background: #4c4c4cdb;
+    left: 0;
+    top: 0;
+    transition: width 0.5s ease-in-out;
+}
+
+.body-overlay.opend {
+    width: 100%;
+}
+
+.body-overlay2 {
+    width: 100%;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+
+}
+
+.body-overlay2.opened {
+    visibility: visible;
+    opacity: 1;
+}
+
+.canvas {
+    position: fixed;
+    top: 0;
+    left: -480px;
+    width: 480px;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 999;
+    background: #fff;
+    transition: left 0.3s ease-in-out;
+}
+
+.canvas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+.canvas-body {
+    padding: 30px;
+}
+
+.canvas-header-title {
+    font-size: 14px;
+    font-family: "Archivo Narrow", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: #151515;
+    margin-bottom: 3px;
+}
+
+.all-product-count {
+    font-weight: 400;
+    color: #151515;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: "Archivo Narrow", sans-serif;
+    letter-spacing: 0.8px;
+
+
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    line-height: 0.5;
+    color: #151515;
+
+}
+
+.available-toggle {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
+.available-toggle .title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #151515;
+    font-family: "Archivo Narrow", sans-serif;
+}
+
+.stock-toggle {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    display: none;
+    transition: 0.3s;
+    opacity: 0;
+    margin-bottom: 25px;
+}
+
+.stock-toggle-icon {
+    width: 45px;
+    background: #ddd;
+    height: 22px;
+    border-radius: 30px;
+    line-height: 22px;
+
+}
+
+.stock-toggle-icon span {
+    width: 16px;
+    background: #fff;
+    height: 16px;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 3px auto 3px 3px;
+}
+
+
+.available-toggle-icon {
+    display: inline-block;
+    position: relative;
+    width: 15px;
+    margin-right: 15px;
+}
+
+.available-toggle-icon::before,
+.available-toggle-icon::after {
+    content: "";
+    width: 15px;
+    height: 1px;
+    display: inline-block;
+    background: #151515;
+    position: absolute;
+    transition: 0.3s;
+
+}
+
+.available-toggle .available-toggle-icon::before {
+    transform: rotate(-90deg);
+}
+
+.stock-toggle.active {
+    display: flex;
+    opacity: 1;
+}
+
+.available-toggle.active .available-toggle-icon::before {
+    transform: rotate(0);
+}
+
+.filter-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #151515;
+    text-transform: uppercase;
+    font-family: "Archivo Narrow", sans-serif;
+
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+select#filter {
+    border: none;
+}
+
+select#filter option {
+    font-family: "Archivo Narrow", sans-serif;
+
+}
+
+
+
+.cart-canva {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    background: #fff;
+    height: 100%;
+    width: 0;
+    overflow-y: scroll;
+    transition: width 0.3s ease-in-out;
+
+}
+
+.cart-canva.opened {
+    width: 480px;
+
+}
+
+.cart-product-list {
+    position: fixed;
+    top: 0;
+    right: -480px;
+    z-index: 998;
+    height: 100%;
+    width: 0;
+    overflow-y: scroll;
+    transition: right 0.3s ease-in-out;
+    padding: 10px;
+    background: #cfcfcffc;
+    box-shadow: inset 0 4px 40px #00000026;
+    width: 425px;
+}
+
+.cart-product-list::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar in WebKit-based browsers */
+}
+
+.cart-product-list {
+    scrollbar-width: none;
+    /* Hide scrollbar in Firefox */
+}
+
+.cart-product-list.opened {
+
+    right: 480px;
+
+}
+
+.product-images {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.product-images img {
+    width: 100%;
+}
+
+.cart-canva-body {
+    padding: 25px 30px;
+}
+
+.cart-canva .canvas-header-title {
+    font-size: 15px;
+    margin: 0;
+
+}
+
+.cart-canva .canvas-header {
+    padding: 25px 30px;
+
+}
+
+.cart-canva-body .product-name {
+    font-size: 24px;
+    font-family: "Archivo Narrow", sans-serif;
+    font-weight: 500;
+    color: #151515;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.cart-canva-body .product-price {
+    font-size: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1;
+    margin-bottom: 28px;
+}
+
+.cart-canva-body .product-tag {
+    position: static;
+
+}
+
+.form-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-family: "Archivo Narrow", sans-serif;
+    margin-bottom: 13px;
+}
+
+.size-button {
+    width: 48px;
+    height: 48px;
+    border-radius: 0 !important;
+    border: 1px solid #ddd;
+    background: transparent;
+}
+
+.size-button.active {
+    border: 1px solid #151515;
+}
+
+.size-options {
+    margin-bottom: 30px;
+}
+
+.quantity-selector {
+    height: 48px;
+    width: 97px;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+}
+
+.quantity-button {
+    border: none;
+    background: none;
+    font-size: 20px;
+    width: 33.3%;
+    font-family: "Archivo Narrow", sans-serif;
+    cursor: pointer;
+
+}
+
+#quantity {
+    width: 33.3%;
+    height: 100%;
+    border: none;
+    text-align: center;
+    font-family: "Archivo Narrow", sans-serif;
+
+}
+
+#quantity:focus {
+    border: none;
+    outline: none;
+}
+
+.add-to-cart-button {
+    height: 48px;
+    width: 100%;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: no-repeat;
+    font-size: 17px;
+    font-family: "Archivo Narrow", sans-serif;
+    cursor: pointer;
+
+
+}
+
+.group-quantity-add {
+    display: flex;
+    gap: 10px;
+}
+
+.cart-image {
+    margin-bottom: 8px;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+    .rs-container {
+        padding: 0 35px;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+
+    .cart-product-list {
+        position: static;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        overflow-x: scroll;
+        margin-top: 68px;
+
+    }
+
+    .cart-canva.opened .canvas-header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 480px;
+        background: #fff;
+    }
+
+    .product-images {
+        display: flex;
+        gap: 10px;
+        height: 280px;
+    }
+
+    .product-images img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .cart-image {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .cart-canva.opened {
+        width: calc(100% - 30px);
+    }
+
+    .cart-canva.opened .canvas-header {
+        width: calc(100% - 30px);
+
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .product-card {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .rs-container {
+        padding: 0 15px;
+    }
+
+    select#filter-select {
+        display: none;
+    }
+}
